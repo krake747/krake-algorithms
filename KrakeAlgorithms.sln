@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrakeAlgorithms.Tests.Unit"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1E2B3E5B-6BE7-43F6-8DEA-DCC39AB40066}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "benchmarks", "benchmarks", "{04CE719E-BDF7-427D-B418-81446AFDD6D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrakeAlgorithms.Benchmarks", "KrakeAlgorithms.Benchmarks\KrakeAlgorithms.Benchmarks.csproj", "{1CBFD1F0-4B6B-4EE2-9419-845B23A19A08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,9 +26,14 @@ Global
 		{9585FFCD-6EA6-4A04-9CC1-60AC43A9AA4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9585FFCD-6EA6-4A04-9CC1-60AC43A9AA4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9585FFCD-6EA6-4A04-9CC1-60AC43A9AA4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CBFD1F0-4B6B-4EE2-9419-845B23A19A08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CBFD1F0-4B6B-4EE2-9419-845B23A19A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CBFD1F0-4B6B-4EE2-9419-845B23A19A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CBFD1F0-4B6B-4EE2-9419-845B23A19A08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E5A414A1-5905-4A60-A9E6-4D19A855200A} = {06A72494-0196-44C8-91D5-87AAE2E56B33}
 		{9585FFCD-6EA6-4A04-9CC1-60AC43A9AA4C} = {1E2B3E5B-6BE7-43F6-8DEA-DCC39AB40066}
+		{1CBFD1F0-4B6B-4EE2-9419-845B23A19A08} = {04CE719E-BDF7-427D-B418-81446AFDD6D6}
 	EndGlobalSection
 EndGlobal
