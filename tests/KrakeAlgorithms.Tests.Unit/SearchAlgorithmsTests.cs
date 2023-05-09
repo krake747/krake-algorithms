@@ -17,6 +17,21 @@ public class SearchAlgorithmsTests
         // Assert
         result.Should().Be(expected);
     }
+
+
+    [Theory]
+    [ClassData(typeof(SortedData))]
+    public void BinarySearch_ShouldReturnExpected_WhenNeedleIsFoundOrNotFound(int[] sample, int element, bool expected)
+    {
+        // Arrange
+        var sut = SearchAlgorithms.BinarySearch<int>;
+
+        // Act
+        var result = sut(sample, element);
+
+        // Assert
+        result.Should().Be(expected);
+    }
 }
 
 public class SortedData : TheoryData<int[], int, bool>

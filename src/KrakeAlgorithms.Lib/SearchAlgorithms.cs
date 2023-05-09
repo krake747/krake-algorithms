@@ -17,4 +17,32 @@ public static class SearchAlgorithms
 
         return false;
     }
+
+    public static bool BinarySearch<T>(IReadOnlyList<T> haystack, T needle)
+        where T : INumber<T>
+    {
+        var low = 0;
+        var high = haystack.Count;
+        do
+        {
+            var mid = low + (high - low) / 2;
+            var value = haystack[mid];
+            if (value == needle)
+            {
+                return true;
+            }
+
+            if (value > needle)
+            {
+                high = mid;
+            }
+            else
+            {
+                low = mid + 1;
+            }
+
+        } while (low < high);
+        
+        return false;
+    }
 }
