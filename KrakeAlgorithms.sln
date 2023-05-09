@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrakeAlgorithms.Lib", "src\KrakeAlgorithms.Lib\KrakeAlgorithms.Lib.csproj", "{E5A414A1-5905-4A60-A9E6-4D19A855200A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{06A72494-0196-44C8-91D5-87AAE2E56B33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrakeAlgorithms.Tests.Unit", "tests\KrakeAlgorithms.Tests.Unit\KrakeAlgorithms.Tests.Unit.csproj", "{9585FFCD-6EA6-4A04-9CC1-60AC43A9AA4C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1E2B3E5B-6BE7-43F6-8DEA-DCC39AB40066}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5A414A1-5905-4A60-A9E6-4D19A855200A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5A414A1-5905-4A60-A9E6-4D19A855200A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5A414A1-5905-4A60-A9E6-4D19A855200A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5A414A1-5905-4A60-A9E6-4D19A855200A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9585FFCD-6EA6-4A04-9CC1-60AC43A9AA4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9585FFCD-6EA6-4A04-9CC1-60AC43A9AA4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9585FFCD-6EA6-4A04-9CC1-60AC43A9AA4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9585FFCD-6EA6-4A04-9CC1-60AC43A9AA4C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E5A414A1-5905-4A60-A9E6-4D19A855200A} = {06A72494-0196-44C8-91D5-87AAE2E56B33}
+		{9585FFCD-6EA6-4A04-9CC1-60AC43A9AA4C} = {1E2B3E5B-6BE7-43F6-8DEA-DCC39AB40066}
+	EndGlobalSection
+EndGlobal
