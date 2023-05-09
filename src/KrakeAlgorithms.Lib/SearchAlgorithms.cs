@@ -40,9 +40,8 @@ public static class SearchAlgorithms
             {
                 low = mid + 1;
             }
-
         } while (low < high);
-        
+
         return false;
     }
 }
