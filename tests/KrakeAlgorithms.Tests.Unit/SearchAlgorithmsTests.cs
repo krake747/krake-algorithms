@@ -2,7 +2,7 @@ using KrakeAlgorithms.Lib;
 
 namespace KrakeAlgorithms.Tests.Unit;
 
-public class SearchAlgorithmsTests
+public sealed class SearchAlgorithmsTests
 {
     [Theory]
     [ClassData(typeof(SortedData))]
@@ -32,9 +32,23 @@ public class SearchAlgorithmsTests
         // Assert
         result.Should().Be(expected);
     }
+
+    [Theory]
+    [ClassData(typeof(SortedBooleanData))]
+    public void TwoGlassBallsSearch_ShouldReturnExpectedIndex_WhenGlassBallBreakOrNotBreaks(bool[] sample, int expected)
+    {
+        // Arrange
+        var sut = SearchAlgorithms.TwoGlassBallsSearch;
+
+        // Act
+        var result = sut(sample);
+
+        // Assert
+        result.Should().Be(expected);
+    }
 }
 
-public class SortedData : TheoryData<int[], int, bool>
+public sealed class SortedData : TheoryData<int[], int, bool>
 {
     private readonly int[] _sorted = { 1, 2, 13, 31, 47, 49, 62, 69, 70, 100 };
 
@@ -44,5 +58,22 @@ public class SortedData : TheoryData<int[], int, bool>
         Add(_sorted, 3, false);
         Add(_sorted, 99, false);
         Add(_sorted, 100, true);
+    }
+}
+
+public sealed class SortedBooleanData : TheoryData<bool[], int>
+{
+    private readonly bool[] _sorted =  new bool[100];
+    private readonly bool[] _empty = new bool[100]; 
+    public SortedBooleanData()
+    {
+        var index = (int)Math.Sqrt(Random.Shared.Next(0, 100));
+        for (var i = index; i < _sorted.Length; ++i)
+        {
+            _sorted[i] = true;
+        }
+        
+        Add(_sorted, index);
+        Add(_empty, -1);
     }
 }

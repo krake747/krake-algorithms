@@ -44,4 +44,29 @@ public static class SearchAlgorithms
 
         return false;
     }
+
+    public static int TwoGlassBallsSearch(bool[] breaks)
+    {
+        var jumpAmount = (int)Math.Sqrt(breaks.Length);
+        var i = jumpAmount;
+        for (; i < jumpAmount; i += jumpAmount)
+        {
+            if (breaks[i])
+            {
+                break;
+            }
+        }
+
+        i -= jumpAmount;
+
+        for (var j = 0; j < jumpAmount && i < breaks.Length; ++j, ++i)
+        {
+            if (breaks[i])
+            {
+                return i;
+            }
+        }
+        
+        return -1;
+    }
 }
