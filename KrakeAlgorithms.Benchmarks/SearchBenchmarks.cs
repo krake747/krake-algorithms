@@ -3,8 +3,8 @@ using KrakeAlgorithms.Lib;
 
 namespace KrakeAlgorithms.Benchmarks;
 
-[MemoryDiagnoser(false)]
-public class SearchBenchmarks
+[MemoryDiagnoser]
+public sealed class SearchBenchmarks
 {
     private int[] _sample = Array.Empty<int>();
 
