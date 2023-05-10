@@ -6,7 +6,8 @@ public sealed class SearchAlgorithmsTests
 {
     [Theory]
     [ClassData(typeof(SortedData))]
-    public void LinearSearch_ShouldReturnExpected_WhenNeedleIsFoundOrNotFound(int[] sample, int element, bool expected)
+    public void LinearSearch_ShouldReturnExpectedIndex_WhenNeedleIsFoundOrNotFound(int[] sample, int element,
+        int expected)
     {
         // Arrange
         var sut = SearchAlgorithms.LinearSearch<int>;
@@ -21,7 +22,8 @@ public sealed class SearchAlgorithmsTests
 
     [Theory]
     [ClassData(typeof(SortedData))]
-    public void BinarySearch_ShouldReturnExpected_WhenNeedleIsFoundOrNotFound(int[] sample, int element, bool expected)
+    public void BinarySearch_ShouldReturnExpectedIndex_WhenNeedleIsFoundOrNotFound(int[] sample, int element,
+        int expected)
     {
         // Arrange
         var sut = SearchAlgorithms.BinarySearch<int>;
@@ -48,23 +50,24 @@ public sealed class SearchAlgorithmsTests
     }
 }
 
-public sealed class SortedData : TheoryData<int[], int, bool>
+public sealed class SortedData : TheoryData<int[], int, int>
 {
     private readonly int[] _sorted = { 1, 2, 13, 31, 47, 49, 62, 69, 70, 100 };
 
     public SortedData()
     {
-        Add(_sorted, 1, true);
-        Add(_sorted, 3, false);
-        Add(_sorted, 99, false);
-        Add(_sorted, 100, true);
+        Add(_sorted, 1, 0);
+        Add(_sorted, 3, -1);
+        Add(_sorted, 62, 6);
+        Add(_sorted, 99, -1);
     }
 }
 
 public sealed class SortedBooleanData : TheoryData<bool[], int>
 {
-    private readonly bool[] _sorted =  new bool[100];
-    private readonly bool[] _empty = new bool[100]; 
+    private readonly bool[] _empty = new bool[100];
+    private readonly bool[] _sorted = new bool[100];
+
     public SortedBooleanData()
     {
         var index = (int)Math.Sqrt(Random.Shared.Next(0, 100));
@@ -72,7 +75,7 @@ public sealed class SortedBooleanData : TheoryData<bool[], int>
         {
             _sorted[i] = true;
         }
-        
+
         Add(_sorted, index);
         Add(_empty, -1);
     }

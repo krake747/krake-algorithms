@@ -4,21 +4,21 @@ namespace KrakeAlgorithms.Lib;
 
 public static class SearchAlgorithms
 {
-    public static bool LinearSearch<T>(T[] haystack, T needle)
+    public static int LinearSearch<T>(T[] haystack, T needle)
         where T : INumber<T>
     {
-        for (var i = 0; i < haystack.Length; i++)
+        for (var i = 0; i < haystack.Length; ++i)
         {
             if (haystack[i] == needle)
             {
-                return true;
+                return i;
             }
         }
 
-        return false;
+        return -1;
     }
 
-    public static bool BinarySearch<T>(T[] haystack, T needle)
+    public static int BinarySearch<T>(T[] haystack, T needle)
         where T : INumber<T>
     {
         var low = 0;
@@ -29,7 +29,7 @@ public static class SearchAlgorithms
             var value = haystack[mid];
             if (value == needle)
             {
-                return true;
+                return mid;
             }
 
             if (value > needle)
@@ -42,7 +42,7 @@ public static class SearchAlgorithms
             }
         } while (low < high);
 
-        return false;
+        return -1;
     }
 
     public static int TwoGlassBallsSearch(bool[] breaks)
