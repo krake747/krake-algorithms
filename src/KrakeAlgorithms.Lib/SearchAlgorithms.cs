@@ -4,10 +4,10 @@ namespace KrakeAlgorithms.Lib;
 
 public static class SearchAlgorithms
 {
-    public static bool LinearSearch<T>(IReadOnlyList<T> haystack, T needle)
+    public static bool LinearSearch<T>(T[] haystack, T needle)
         where T : INumber<T>
     {
-        for (var i = 0; i < haystack.Count; i++)
+        for (var i = 0; i < haystack.Length; i++)
         {
             if (haystack[i] == needle)
             {
@@ -18,11 +18,11 @@ public static class SearchAlgorithms
         return false;
     }
 
-    public static bool BinarySearch<T>(IReadOnlyList<T> haystack, T needle)
+    public static bool BinarySearch<T>(T[] haystack, T needle)
         where T : INumber<T>
     {
         var low = 0;
-        var high = haystack.Count;
+        var high = haystack.Length;
         do
         {
             var mid = low + (high - low) / 2;
