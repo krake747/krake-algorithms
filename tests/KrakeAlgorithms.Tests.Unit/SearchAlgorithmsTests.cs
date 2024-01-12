@@ -52,7 +52,7 @@ public sealed class SearchAlgorithmsTests
 
 public sealed class SortedData : TheoryData<int[], int, int>
 {
-    private readonly int[] _sorted = { 1, 2, 13, 31, 47, 49, 62, 69, 70, 100 };
+    private readonly int[] _sorted = [1, 2, 13, 31, 47, 49, 62, 69, 70, 100];
 
     public SortedData()
     {

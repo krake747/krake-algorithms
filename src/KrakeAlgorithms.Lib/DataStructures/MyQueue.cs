@@ -4,12 +4,9 @@ public sealed class MyQueue<T> : IMyQueue<T>
 {
     private Node<T>? _head;
     private Node<T>? _tail;
+
     public int Length { get; set; }
 
-    public MyQueue()
-    {
-    }
-    
     public void Enqueue(T item)
     {
         var node = new Node<T>
@@ -48,10 +45,7 @@ public sealed class MyQueue<T> : IMyQueue<T>
         return head.Value;
     }
 
-    public T? Peek()
-    {
-        return _head is not null ? _head.Value : default;
-    }
+    public T? Peek() => _head is not null ? _head.Value : default;
 }
 
 public sealed class Node<T>
@@ -67,4 +61,3 @@ public interface IMyQueue<T>
     T? Dequeue();
     T? Peek();
 }
-

@@ -18,7 +18,7 @@ public sealed class MyQueueTests
         // Assert
         result.Should().Be(1);
     }
-    
+
     [Fact]
     public void Enqueue_ShouldEnqueueOneItems_WhenQueueStartsWithOneItem()
     {
@@ -42,10 +42,10 @@ public sealed class MyQueueTests
         sut.Enqueue(new Item(0));
         sut.Enqueue(new Item(1));
         sut.Enqueue(new Item(2));
-        
+
         // Act
         var result = sut.Dequeue();
-        
+
         // Assert
         using var scope = new AssertionScope();
         result.Should().Be(new Item(0));
@@ -59,12 +59,12 @@ public sealed class MyQueueTests
         var sut = new MyQueue<Item>();
         sut.Enqueue(new Item(0));
         sut.Enqueue(new Item(1));
-        
+
         // Act
         var item = sut.Dequeue();
         sut.Enqueue(item);
         var result = sut.Peek();
-        
+
         // Assert
         using var scope = new AssertionScope();
         result.Should().Be(new Item(1));
@@ -78,7 +78,7 @@ public sealed class MyQueueTests
         var sut = new MyQueue<Item>();
         sut.Enqueue(new Item(0));
         sut.Enqueue(new Item(1));
-        
+
         // Act
         var result = sut.Peek();
 
@@ -87,7 +87,7 @@ public sealed class MyQueueTests
         result.Should().Be(new Item(0));
         sut.Length.Should().Be(2);
     }
-    
+
 
     private readonly record struct Item(int Value);
 }

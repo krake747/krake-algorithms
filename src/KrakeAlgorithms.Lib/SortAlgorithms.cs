@@ -4,7 +4,7 @@ namespace KrakeAlgorithms.Lib;
 
 public static class SortAlgorithms
 {
-    public static T[] BubbleSort<T>(T[] array) 
+    public static T[] BubbleSort<T>(T[] array)
         where T : INumber<T>
     {
         for (var i = 0; i < array.Length; ++i)
@@ -17,32 +17,20 @@ public static class SortAlgorithms
                 }
             }
         }
-        
+
         return array;
     }
 
-    private static void Swap<T>(T[] array, int firstIndex, int secondIndex)
+    private static void Swap<T>(IList<T> array, int firstIndex, int secondIndex)
     {
         (array[firstIndex], array[secondIndex]) = (array[secondIndex], array[firstIndex]);
     }
 
-    public static T[] QuickSort<T>(T[] sample)
-    {
-        return Array.Empty<T>(); 
-    }
-    
-    public static T[] MergeSort<T>(T[] sample)
-    {
-        return Array.Empty<T>();
-    }
-    
-    public static T[] SelectionSort<T>(T[] sample)
-    {
-        return Array.Empty<T>();
-    }
-    
-    public static T[] InsertionSort<T>(T[] sample)
-    {
-        return Array.Empty<T>();
-    }
+    public static T[] QuickSort<T>(T[] sample) => Array.Empty<T>();
+
+    public static T[] MergeSort<T>(T[] sample) => Array.Empty<T>();
+
+    public static T[] SelectionSort<T>(T[] sample) => Array.Empty<T>();
+
+    public static T[] InsertionSort<T>(T[] sample) => Array.Empty<T>();
 }

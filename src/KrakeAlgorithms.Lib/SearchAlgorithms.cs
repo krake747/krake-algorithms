@@ -66,7 +66,7 @@ public static class SearchAlgorithms
                 return i;
             }
         }
-        
+
         return -1;
     }
 }
