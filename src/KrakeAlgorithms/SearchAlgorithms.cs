@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
 
-namespace KrakeAlgorithms.Lib;
+namespace KrakeAlgorithms;
 
 public static class SearchAlgorithms
 {

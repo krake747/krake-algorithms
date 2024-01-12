@@ -1,5 +1,5 @@
 ﻿using FluentAssertions.Execution;
-using KrakeAlgorithms.Lib.DataStructures;
+using KrakeAlgorithms.DataStructures;
 
 namespace KrakeAlgorithms.Tests.Unit.DataStructures;
 

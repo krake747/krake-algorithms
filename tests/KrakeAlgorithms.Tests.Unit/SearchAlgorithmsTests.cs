@@ -1,4 +1,4 @@
-using KrakeAlgorithms.Lib;
+using KrakeAlgorithms;
 
 namespace KrakeAlgorithms.Tests.Unit;
 

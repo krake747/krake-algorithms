@@ -23,7 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\KrakeAlgorithms.Lib\KrakeAlgorithms.Lib.csproj"/>
+        <ProjectReference Include="..\..\src\KrakeAlgorithms\KrakeAlgorithms.csproj" />
     </ItemGroup>
 
 </Project>

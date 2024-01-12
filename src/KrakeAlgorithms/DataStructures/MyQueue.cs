@@ -1,4 +1,4 @@
-﻿namespace KrakeAlgorithms.Lib.DataStructures;
+﻿namespace KrakeAlgorithms.DataStructures;
 
 public sealed class MyQueue<T> : IMyQueue<T>
 {

@@ -1,5 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
-using KrakeAlgorithms.Lib;
+using KrakeAlgorithms;
 
 namespace KrakeAlgorithms.Benchmarks;
 

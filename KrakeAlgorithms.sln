@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrakeAlgorithms.Lib", "src\KrakeAlgorithms.Lib\KrakeAlgorithms.Lib.csproj", "{E5A414A1-5905-4A60-A9E6-4D19A855200A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrakeAlgorithms", "src\KrakeAlgorithms\KrakeAlgorithms.csproj", "{E5A414A1-5905-4A60-A9E6-4D19A855200A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{06A72494-0196-44C8-91D5-87AAE2E56B33}"
 EndProject
