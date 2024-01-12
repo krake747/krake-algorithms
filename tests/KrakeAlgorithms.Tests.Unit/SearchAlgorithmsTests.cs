@@ -1,5 +1,3 @@
-using KrakeAlgorithms;
-
 namespace KrakeAlgorithms.Tests.Unit;
 
 public sealed class SearchAlgorithmsTests

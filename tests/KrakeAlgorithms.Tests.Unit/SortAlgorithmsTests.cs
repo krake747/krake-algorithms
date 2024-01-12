@@ -1,6 +1,4 @@
-﻿using KrakeAlgorithms;
-
-namespace KrakeAlgorithms.Tests.Unit;
+﻿namespace KrakeAlgorithms.Tests.Unit;
 
 public sealed class SortAlgorithmsTests
 {
