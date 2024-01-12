@@ -3,7 +3,9 @@
 public static class LeetEasy
 {
     
-    /// <remarks>https://leetcode.com/problems/roman-to-integer/</remarks>
+    /// <remarks>
+    /// https://leetcode.com/problems/roman-to-integer/
+    /// </remarks>
     public static int RomanToInt(string s)
     {
         var result = 0;
@@ -35,6 +37,9 @@ public static class LeetEasy
         };
     }
 
+    /// <remarks>
+    /// https://leetcode.com/problems/longest-common-prefix/description/
+    /// </remarks>
     public static string LongestCommonPrefix(string[] strs)
     {
         var prefix = string.Empty;
