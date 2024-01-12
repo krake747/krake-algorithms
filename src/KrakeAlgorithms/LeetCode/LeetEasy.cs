@@ -38,16 +38,13 @@ public static class LeetEasy
     public static string LongestCommonPrefix(string[] strs)
     {
         var prefix = string.Empty;
-        var input = strs.Order().ToArray();
-        for (var i = 0; i < input[0].Length; i++)
+        var inputs = strs.Order().ToArray();
+        for (var i = 0; i < inputs[0].Length; i++)
         {
-            var c = input[0][i];
-            for (var j = 0; j < input.Length; j++)
+            var c = inputs[0][i];
+            if (inputs.Any(s => s[i] != c))
             {
-                if (i >= input[j].Length || input[j][i] != c)
-                {
-                    return prefix;
-                }
+                return prefix;
             }
 
             prefix += c;
