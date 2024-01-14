@@ -178,6 +178,25 @@ public static class LeetEasy
         
         return len;
     }
+
+    /// <remarks>
+    /// https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
+    /// </remarks>
+    public static int StrStr(string haystack, string needle)
+    {
+        for (var i = 0; i < haystack.Length + 1 - needle.Length; i++)
+        {
+            if (haystack.Substring(i,  needle.Length) == needle)
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+    
+    public static int StrStr2(string haystack, string needle) =>
+        haystack.IndexOf(needle, StringComparison.InvariantCulture);
 }
 
 /// <summary>

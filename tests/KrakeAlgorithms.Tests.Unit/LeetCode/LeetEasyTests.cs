@@ -1,4 +1,5 @@
-﻿using KrakeAlgorithms.LeetCode;
+﻿using FluentAssertions.Execution;
+using KrakeAlgorithms.LeetCode;
 
 namespace KrakeAlgorithms.Tests.Unit.LeetCode;
 
@@ -114,5 +115,23 @@ public sealed class LeetEasyTests
 
         // Assert
         result.Should().Be(expected);
+    }
+
+    [Fact]
+    public void StrStr()
+    {
+        // Arrange
+        const string haystack = "sadbutsad";
+        const string needle = "sad";
+        const int expected = 0;
+        
+        // Act
+        var result = LeetEasy.StrStr(haystack, needle);
+        var result2 = LeetEasy.StrStr2(haystack, needle);
+        
+        // Assert
+        using var _ = new AssertionScope();
+        result.Should().Be(expected);
+        result2.Should().Be(expected);
     }
 }
