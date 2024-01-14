@@ -162,6 +162,9 @@ public static class LeetEasy
         return j;
     }
 
+    /// <remarks>
+    /// https://leetcode.com/problems/remove-element/
+    /// </remarks>
     public static int RemoveElement(int[] nums, int val)
     {
         var len = 0;
