@@ -140,6 +140,9 @@ public static class LeetEasy
     //     return new ListNode();
     // }
 
+    /// <remarks>
+    /// https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+    /// </remarks>>
     public static int RemoveDuplicated(int[] nums)
     {
         if (nums.Length < 2)
@@ -157,6 +160,20 @@ public static class LeetEasy
         }
         
         return j;
+    }
+
+    public static int RemoveElement(int[] nums, int val)
+    {
+        var len = 0;
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] != val)
+            {
+                nums[len++] = nums[i]; 
+            }
+        }
+        
+        return len;
     }
 }
 

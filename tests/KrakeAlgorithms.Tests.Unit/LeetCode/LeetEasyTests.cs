@@ -100,4 +100,19 @@ public sealed class LeetEasyTests
         // Assert
         result.Should().Be(expected);
     }
+
+    [Fact]
+    public void RemoveElement()
+    {
+        // Arrange
+        int[] input = [3,2,2,3];
+        const int target = 3;
+        const int expected = 2;
+        
+        // Act
+        var result = LeetEasy.RemoveElement(input, target);
+
+        // Assert
+        result.Should().Be(expected);
+    }
 }
