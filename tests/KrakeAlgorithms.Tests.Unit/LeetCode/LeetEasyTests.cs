@@ -134,4 +134,19 @@ public sealed class LeetEasyTests
         result.Should().Be(expected);
         result2.Should().Be(expected);
     }
+
+    [Fact]
+    public void SearchInsert()
+    {
+        // Arrange
+        int[] input = [1, 3, 5, 6];
+        const int target = 2;
+        const int expected = 1;
+        
+        // Act
+        var result = LeetEasy.SearchInsert(input, target);
+
+        // Assert
+        result.Should().Be(expected);
+    }
 }

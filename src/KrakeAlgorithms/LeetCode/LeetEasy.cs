@@ -197,6 +197,35 @@ public static class LeetEasy
     
     public static int StrStr2(string haystack, string needle) =>
         haystack.IndexOf(needle, StringComparison.InvariantCulture);
+
+    /// <remarks>
+    /// https://leetcode.com/problems/search-insert-position/description/
+    /// </remarks>
+    public static int SearchInsert(int[] nums, int target)
+    {
+        var low = 0;
+        var high = nums.Length;
+        do
+        {
+            var mid = low + (high - low) / 2;
+            var value = nums[mid];
+            if (value == target)
+            {
+                return mid;
+            }
+
+            if (value > target)
+            {
+                high = mid;
+            }
+            else
+            {
+                low = mid + 1;
+            }
+        } while (low < high);
+        
+        return low;
+    }
 }
 
 /// <summary>
