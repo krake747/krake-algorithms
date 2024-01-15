@@ -149,4 +149,18 @@ public sealed class LeetEasyTests
         // Assert
         result.Should().Be(expected);
     }
+
+    [Fact]
+    public void LengthOfLastWord()
+    {
+        // Arrange
+        const string input = "luffy is still joyboy";
+        const int expected = 6;
+
+        // Act
+        var result = LeetEasy.LengthOfLastWord(input);
+        
+        // Assert
+        result.Should().Be(expected);
+    }
 }

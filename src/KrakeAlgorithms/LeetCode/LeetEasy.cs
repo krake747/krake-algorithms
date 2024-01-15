@@ -1,4 +1,6 @@
-﻿namespace KrakeAlgorithms.LeetCode;
+﻿using System.Text.RegularExpressions;
+
+namespace KrakeAlgorithms.LeetCode;
 
 public static class LeetEasy
 {
@@ -225,6 +227,32 @@ public static class LeetEasy
         } while (low < high);
         
         return low;
+    }
+
+    /// <remarks>
+    /// https://leetcode.com/problems/search-insert-position/description/
+    /// </remarks>
+    public static int LengthOfLastWord(string s)
+    {
+        var isChar = false;
+        var count = 0;
+        for (var i = s.Length - 1; i >= 0; i--)
+        {
+            if (char.IsLetter(s[i]))
+            {
+                isChar = true;
+                count++;
+            }
+            else
+            {
+                if (isChar)
+                {
+                    return count;
+                }
+            }
+        }
+        
+        return count;
     }
 }
 
