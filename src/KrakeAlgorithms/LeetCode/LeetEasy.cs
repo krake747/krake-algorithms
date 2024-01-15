@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace KrakeAlgorithms.LeetCode;
 
@@ -235,24 +236,41 @@ public static class LeetEasy
     public static int LengthOfLastWord(string s)
     {
         var isChar = false;
-        var count = 0;
+        var len = 0;
         for (var i = s.Length - 1; i >= 0; i--)
         {
             if (char.IsLetter(s[i]))
             {
                 isChar = true;
-                count++;
+                len++;
             }
             else
             {
                 if (isChar)
                 {
-                    return count;
+                    return len;
                 }
             }
         }
         
-        return count;
+        return len;
+    }
+
+    public static int[] PlusOne(int[] digits)
+    {
+        for (var i = digits.Length - 1; i >= 0; i--)
+        {
+            if (++digits[i] is 10)
+            {
+                digits[i] = 0;
+            }
+            else
+            {
+                return digits;
+            }
+        }
+
+        return [1, ..digits];
     }
 }
 

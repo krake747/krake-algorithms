@@ -14,11 +14,11 @@ public sealed class LeetEasyTests
 
         // Act
         var result = LeetEasy.TwoSum(input, target);
-        
+
         // Assert
         result.Should().Equal(1, 2);
     }
-    
+
     [Fact]
     public void IsPalindrome()
     {
@@ -27,18 +27,18 @@ public sealed class LeetEasyTests
 
         // Act
         var result = LeetEasy.IsPalindrome(input);
-        
+
         // Assert
         result.Should().BeTrue();
     }
-    
+
     [Fact]
     public void RomanToInteger()
     {
         // Arrange
         const string input = "MCMXCIV";
-        const int expected = 1994; 
-        
+        const int expected = 1994;
+
         // Act
         var result = LeetEasy.RomanToInt(input);
 
@@ -55,7 +55,7 @@ public sealed class LeetEasyTests
 
         // Act
         var result = LeetEasy.LongestCommonPrefix(input);
-        
+
         // Assert
         result.Should().Be(expected);
     }
@@ -68,7 +68,7 @@ public sealed class LeetEasyTests
 
         // Act
         var result = LeetEasy.IsValidParentheses(input);
-        
+
         // Assert
         result.Should().BeFalse();
     }
@@ -97,7 +97,7 @@ public sealed class LeetEasyTests
 
         // Act
         var result = LeetEasy.RemoveDuplicated(input);
-        
+
         // Assert
         result.Should().Be(expected);
     }
@@ -106,10 +106,10 @@ public sealed class LeetEasyTests
     public void RemoveElement()
     {
         // Arrange
-        int[] input = [3,2,2,3];
+        int[] input = [3, 2, 2, 3];
         const int target = 3;
         const int expected = 2;
-        
+
         // Act
         var result = LeetEasy.RemoveElement(input, target);
 
@@ -124,11 +124,11 @@ public sealed class LeetEasyTests
         const string haystack = "sadbutsad";
         const string needle = "sad";
         const int expected = 0;
-        
+
         // Act
         var result = LeetEasy.StrStr(haystack, needle);
         var result2 = LeetEasy.StrStr2(haystack, needle);
-        
+
         // Assert
         using var _ = new AssertionScope();
         result.Should().Be(expected);
@@ -142,7 +142,7 @@ public sealed class LeetEasyTests
         int[] input = [1, 3, 5, 6];
         const int target = 2;
         const int expected = 1;
-        
+
         // Act
         var result = LeetEasy.SearchInsert(input, target);
 
@@ -159,8 +159,22 @@ public sealed class LeetEasyTests
 
         // Act
         var result = LeetEasy.LengthOfLastWord(input);
-        
+
         // Assert
         result.Should().Be(expected);
+    }
+
+    [Fact]
+    public void PlusOne()
+    {
+        // Arrange
+        int[] input = [9, 9];
+        int[] expected = [1, 0, 0];
+
+        // Act
+        var result = LeetEasy.PlusOne(input);
+
+        // Assert
+        result.Should().Equal(expected);
     }
 }
