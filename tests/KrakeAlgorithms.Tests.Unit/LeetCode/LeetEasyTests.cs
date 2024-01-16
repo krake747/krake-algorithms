@@ -192,4 +192,18 @@ public sealed class LeetEasyTests
         // Assert
         result.Should().Be(expected);
     }
+
+    [Fact]
+    public void MySqrt()
+    {
+        // Arrange
+        const int input = 8;
+        const int expected = 2;
+
+        // Act
+        var result = LeetEasy.MySqrt(input);
+
+        // Assert
+        result.Should().Be(expected);
+    }
 }

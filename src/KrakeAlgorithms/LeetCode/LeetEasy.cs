@@ -306,6 +306,37 @@ public static class LeetEasy
 
         return sb.ToString();
     }
+
+    /// <remarks>
+    ///     https://leetcode.com/problems/sqrtx/description/
+    /// </remarks>
+    public static int MySqrt(int x)
+    {
+        var low = 0;
+        var high = x;
+        var mid = high / 2;
+        do {
+            var value = (long)mid * mid;
+            if (value == x)
+            {
+                return mid;
+            }
+
+            if (value > x)
+            {
+                high = mid - 1;
+            }
+            else
+            {
+                low = mid + 1;
+            }
+            
+            mid = (high + low) / 2;
+            
+        } while (low <= high);
+        
+        return mid;
+    }
 }
 
 /// <summary>
