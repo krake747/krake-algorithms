@@ -177,4 +177,19 @@ public sealed class LeetEasyTests
         // Assert
         result.Should().Equal(expected);
     }
+
+    [Fact]
+    public void AddBinary()
+    {
+        // Arrange
+        const string input1 = "1010";
+        const string input2 = "1011";
+        const string expected = "10101";
+
+        // Act
+        var result = LeetEasy.AddBinary(input1, input2);
+
+        // Assert
+        result.Should().Be(expected);
+    }
 }

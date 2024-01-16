@@ -1,20 +1,19 @@
-﻿using System.Text.RegularExpressions;
-using Microsoft.VisualBasic.CompilerServices;
+﻿using System.Text;
 
 namespace KrakeAlgorithms.LeetCode;
 
 public static class LeetEasy
 {
     /// <remarks>
-    /// https://leetcode.com/problems/two-sum/
+    ///     https://leetcode.com/problems/two-sum/
     /// </remarks>
     public static int[] TwoSum(int[] nums, int target)
     {
         var map = new Dictionary<int, int>();
-        for (var i = 0; i < nums.Length; i++) 
+        for (var i = 0; i < nums.Length; i++)
         {
             var rest = target - nums[i];
-            if (map.TryGetValue(rest, out var value)) 
+            if (map.TryGetValue(rest, out var value))
             {
                 return [value, i];
             }
@@ -24,24 +23,24 @@ public static class LeetEasy
 
         return [];
     }
-    
+
     /// <remarks>
-    /// https://leetcode.com/problems/palindrome-number/
+    ///     https://leetcode.com/problems/palindrome-number/
     /// </remarks>
-    public static bool IsPalindrome(int x) 
+    public static bool IsPalindrome(int x)
     {
         var s = x.ToString();
-        var r = string.Create(s.Length, s, (chars, state) => 
+        var r = string.Create(s.Length, s, (chars, state) =>
         {
             state.AsSpan().CopyTo(chars);
             chars.Reverse();
         });
-        
-        return s == r;    
+
+        return s == r;
     }
-    
+
     /// <remarks>
-    /// https://leetcode.com/problems/roman-to-integer/
+    ///     https://leetcode.com/problems/roman-to-integer/
     /// </remarks>
     public static int RomanToInt(string s)
     {
@@ -58,7 +57,7 @@ public static class LeetEasy
                 result += value;
             }
         }
-        
+
         return result;
 
         static int RomanValue(char c) => c switch
@@ -75,7 +74,7 @@ public static class LeetEasy
     }
 
     /// <remarks>
-    /// https://leetcode.com/problems/longest-common-prefix/description/
+    ///     https://leetcode.com/problems/longest-common-prefix/description/
     /// </remarks>
     public static string LongestCommonPrefix(string[] strs)
     {
@@ -94,9 +93,9 @@ public static class LeetEasy
 
         return prefix;
     }
-    
+
     /// <remarks>
-    /// https://leetcode.com/problems/valid-parentheses/
+    ///     https://leetcode.com/problems/valid-parentheses/
     /// </remarks>
     public static bool IsValidParentheses(string s)
     {
@@ -116,11 +115,12 @@ public static class LeetEasy
                 return false;
             }
         }
-        
+
         return stack.Count is 0;
 
         static bool Open(char c) => c is '(' or '[' or '{';
         static bool Close(char c) => c is ')' or ']' or '}';
+
         static char Pair(char c) => c switch
         {
             '(' => ')',
@@ -144,8 +144,9 @@ public static class LeetEasy
     // }
 
     /// <remarks>
-    /// https://leetcode.com/problems/remove-duplicates-from-sorted-array/
-    /// </remarks>>
+    ///     https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+    /// </remarks>
+    /// >
     public static int RemoveDuplicated(int[] nums)
     {
         if (nums.Length < 2)
@@ -161,12 +162,12 @@ public static class LeetEasy
                 nums[j++] = nums[i];
             }
         }
-        
+
         return j;
     }
 
     /// <remarks>
-    /// https://leetcode.com/problems/remove-element/
+    ///     https://leetcode.com/problems/remove-element/
     /// </remarks>
     public static int RemoveElement(int[] nums, int val)
     {
@@ -175,21 +176,21 @@ public static class LeetEasy
         {
             if (nums[i] != val)
             {
-                nums[len++] = nums[i]; 
+                nums[len++] = nums[i];
             }
         }
-        
+
         return len;
     }
 
     /// <remarks>
-    /// https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
+    ///     https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
     /// </remarks>
     public static int StrStr(string haystack, string needle)
     {
         for (var i = 0; i < haystack.Length + 1 - needle.Length; i++)
         {
-            if (haystack.Substring(i,  needle.Length) == needle)
+            if (haystack.Substring(i, needle.Length) == needle)
             {
                 return i;
             }
@@ -197,12 +198,12 @@ public static class LeetEasy
 
         return -1;
     }
-    
+
     public static int StrStr2(string haystack, string needle) =>
         haystack.IndexOf(needle, StringComparison.InvariantCulture);
 
     /// <remarks>
-    /// https://leetcode.com/problems/search-insert-position/description/
+    ///     https://leetcode.com/problems/search-insert-position/description/
     /// </remarks>
     public static int SearchInsert(int[] nums, int target)
     {
@@ -226,12 +227,12 @@ public static class LeetEasy
                 low = mid + 1;
             }
         } while (low < high);
-        
+
         return low;
     }
 
     /// <remarks>
-    /// https://leetcode.com/problems/search-insert-position/description/
+    ///     https://leetcode.com/problems/search-insert-position/description/
     /// </remarks>
     public static int LengthOfLastWord(string s)
     {
@@ -252,7 +253,7 @@ public static class LeetEasy
                 }
             }
         }
-        
+
         return len;
     }
 
@@ -272,15 +273,48 @@ public static class LeetEasy
 
         return [1, ..digits];
     }
+
+    /// <remarks>
+    ///     https://leetcode.com/problems/add-binary/description/
+    /// </remarks>
+    public static string AddBinary(string a, string b)
+    {
+        var sb = new StringBuilder();
+        var carry = 0;
+        for (int i = a.Length - 1, j = b.Length - 1; i >= 0 || j >= 0; i--, j--)
+        {
+            var x = i >= 0 ? a[i] - '0' : 0;
+            var y = j >= 0 ? b[j] - '0' : 0;
+            var sum = x + y + carry;
+
+            if (sum > 1)
+            {
+                carry = 1;
+                sb.Insert(0, sum % 2);
+            }
+            else
+            {
+                carry = 0;
+                sb.Insert(0, sum);
+            }
+        }
+
+        if (carry is 1)
+        {
+            sb.Insert(0, '1');
+        }
+
+        return sb.ToString();
+    }
 }
 
 /// <summary>
-/// Definition for singly-linked list.
+///     Definition for singly-linked list.
 /// </summary>
 /// <param name="val"></param>
 /// <param name="next"></param>
 public sealed class ListNode(int val = 0, ListNode? next = null)
 {
-    public int Val = val;
     public ListNode? Next = next;
+    public int Val = val;
 }
