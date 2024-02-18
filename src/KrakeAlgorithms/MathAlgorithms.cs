@@ -1,6 +1,4 @@
-﻿using System.Net.Sockets;
-
-namespace KrakeAlgorithms;
+﻿namespace KrakeAlgorithms;
 
 public static class MathAlgorithms
 {
