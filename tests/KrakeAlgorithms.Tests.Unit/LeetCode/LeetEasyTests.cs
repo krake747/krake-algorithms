@@ -206,4 +206,68 @@ public sealed class LeetEasyTests
         // Assert
         result.Should().Be(expected);
     }
+
+    [Fact]
+    public void CanConstruct()
+    {
+        // Arrange
+        const string input1 = "aa";
+        const string input2 = "aab";
+
+        // Act
+        var result = LeetEasy.CanConstruct(input1, input2);
+
+        // Assert
+        result.Should().BeTrue();
+    }
+
+    [Fact]
+    public void FizzBuzz()
+    {
+        // Arrange
+        const int input = 5;
+        string[] expected = ["1", "2", "Fizz", "4", "Buzz"];
+
+        // Act
+        var result = LeetEasy.FizzBuzz(input);
+
+        // Assert
+        result.Should().Equal(expected);
+    }
+
+    [Fact]
+    public void NumberOfSteps()
+    {
+        // Arrange
+        const int input = 14;
+        const int expected = 6;
+
+        // Act
+        var result = LeetEasy.NumberOfSteps(input);
+
+        // Assert
+        result.Should().Be(expected);
+    }
+
+    [Fact]
+    public void KWeakestRows()
+    {
+        // Arrange
+        int[][] input1 =
+        [
+            [1, 1, 0, 0, 0],
+            [1, 1, 1, 1, 0],
+            [1, 0, 0, 0, 0],
+            [1, 1, 0, 0, 0],
+            [1, 1, 1, 1, 1]
+        ];
+        const int input2 = 3;
+        int[] expected = [2, 0, 3];
+
+        // Act
+        var result = LeetEasy.KWeakestRows(input1, input2);
+
+        // Assert
+        result.Should().Equal(expected);
+    }
 }

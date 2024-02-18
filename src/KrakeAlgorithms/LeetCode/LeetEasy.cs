@@ -315,7 +315,8 @@ public static class LeetEasy
         var low = 0;
         var high = x;
         var mid = high / 2;
-        do {
+        do
+        {
             var value = (long)mid * mid;
             if (value == x)
             {
@@ -330,12 +331,68 @@ public static class LeetEasy
             {
                 low = mid + 1;
             }
-            
+
             mid = (high + low) / 2;
-            
         } while (low <= high);
-        
+
         return mid;
+    }
+
+    /// <remarks>
+    ///     https://leetcode.com/problems/ransom-note/
+    /// </remarks>
+    public static bool CanConstruct(string ransomNote, string magazine)
+    {
+        var groupNote = ransomNote
+            .GroupBy(x => x)
+            .ToDictionary(g => g.Key, g => g.Count());
+
+        var groupMagazine = magazine
+            .GroupBy(x => x)
+            .ToDictionary(g => g.Key, g => g.Count());
+
+        return groupNote.All(x => groupMagazine.ContainsKey(x.Key) && groupMagazine[x.Key] >= x.Value);
+    }
+
+    /// <remarks>
+    ///     https://leetcode.com/problems/fizz-buzz/description/
+    /// </remarks>
+    public static IList<string> FizzBuzz(int n)
+    {
+        var arr = new string[n];
+        for (var i = 0; i < n; i++)
+        {
+            arr[i] = Fizzbuzz(i + 1);
+        }
+
+        return arr;
+
+        static string Fizzbuzz(int x) => (x % 5, x % 3) switch
+        {
+            (0, 0) => "FizzBuzz",
+            (_, 0) => "Fizz",
+            (0, _) => "Buzz",
+            _ => x.ToString()
+        };
+    }
+
+    /// <remarks>
+    ///     https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/
+    /// </remarks>
+    public static int NumberOfSteps(int num) => -1;
+
+    /// <remarks>
+    ///     https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/
+    /// </remarks>
+    public static int[] KWeakestRows(int[][] mat, int k)
+    {
+        return Enumerable.Range(0, mat.GetLength(0))
+            .Select(r => (Row: r, Soldiers: mat[r].Count(i => i is 1)))
+            .OrderBy(r => r.Soldiers)
+            .ThenBy(r => r.Row)
+            .Select(r => r.Row)
+            .Take(k)
+            .ToArray();
     }
 }
 
