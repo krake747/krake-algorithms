@@ -458,6 +458,22 @@ public static class LeetEasy
     }
 
     /// <remarks>
+    ///     https://leetcode.com/problems/valid-palindrome/
+    /// </remarks>
+    public static bool IsValidPalindrome(string s)
+    {
+        var chars = s.ToLower().Where(c => char.IsLetter(c) || char.IsDigit(c)).ToArray();
+        var s1 = new string(chars);
+        var r = string.Create(s1.Length, s1, static (chars, state) =>
+        {
+            state.AsSpan().CopyTo(chars);
+            chars.Reverse();
+        });
+        
+        return s1 == r;
+    }
+    
+    /// <remarks>
     ///     https://leetcode.com/problems/ransom-note/
     /// </remarks>
     public static bool CanConstruct(string ransomNote, string magazine)

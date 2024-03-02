@@ -294,6 +294,19 @@ public sealed class LeetEasyTests
         // Assert
         result.Should().Be(expected);
     }
+    
+    [Fact]
+    public void IsValidPalindrome()
+    {
+        // Arrange
+        const string input = "A man, a plan, a canal: Panama";
+        
+        // Act
+        var result = LeetEasy.IsValidPalindrome(input);
+
+        // Assert
+        result.Should().BeTrue();
+    }
 
     [Fact]
     public void CanConstruct()
