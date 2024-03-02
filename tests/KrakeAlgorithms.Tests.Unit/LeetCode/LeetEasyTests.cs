@@ -208,6 +208,52 @@ public sealed class LeetEasyTests
     }
 
     [Fact]
+    public void ClimbStairs()
+    {
+        // Arrange
+        const int input = 3;
+        const int expected = 3;
+
+        // Act
+        var result = LeetEasy.ClimbStairs(input);
+
+        // Assert
+        result.Should().Be(expected);
+    }
+
+    [Fact]
+    public void MergeSortedArray()
+    {
+        // Arrange
+        var input1 = new[] { 1, 2, 3, 0, 0, 0 };
+        const int m = 3;
+        var input2 = new[] { 2, 5, 6 };
+        const int n = 3;
+        var expected = new[] { 1, 2, 2, 3, 5, 6 };
+
+        // Act
+        LeetEasy.MergeSortedArray(input1, m, input2, n);
+
+        // Assert
+        input1.Should().Equal(expected)
+            .And.BeInAscendingOrder();
+    }
+
+    [Fact]
+    public void PascalsTriangle()
+    {
+        // Arrange
+        const int input = 5;
+        IList<IList<int>> expected = [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]];
+
+        // Act
+        var result = LeetEasy.PascalsTriangle(input);
+
+        // Assert
+        result.Should().BeEquivalentTo(expected);
+    }
+
+    [Fact]
     public void CanConstruct()
     {
         // Arrange
