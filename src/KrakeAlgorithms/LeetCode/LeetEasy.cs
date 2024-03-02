@@ -339,6 +339,74 @@ public static class LeetEasy
     }
 
     /// <remarks>
+    ///     https://leetcode.com/problems/climbing-stairs/
+    /// </remarks>
+    public static int ClimbStairs(int n)
+    {
+        if (n is 1)
+        {
+            return 1;
+        }
+
+        var first = 1;
+        var second = 2;
+        for (var i = 3; i <= n; i++)
+        {
+            var third = first + second;
+            first = second;
+            second = third;
+        }
+
+        return second;
+    }
+
+    /// <remarks>
+    ///     https://leetcode.com/problems/merge-sorted-array/
+    /// </remarks>
+    public static void MergeSortedArray(int[] nums1, int m, int[] nums2, int n)
+    {
+        var i = m - 1;
+        var j = n - 1;
+        var k = m + n - 1;
+        while (j >= 0)
+        {
+            if (i >= 0 && nums1[i] > nums2[j])
+            {
+                nums1[k--] = nums1[i--];
+            }
+            else
+            {
+                nums1[k--] = nums2[j--];
+            }
+        }
+    }
+
+    /// <remarks>
+    ///         https://leetcode.com/problems/pascals-triangle/
+    /// </remarks>
+    public static IList<IList<int>> PascalsTriangle(int numRows)
+    {
+        var triangle = new List<IList<int>>();
+        for (var i = 0; i < numRows; i++)
+        {
+            triangle.Add(new List<int>());
+            for (var j = 0; j < i + 1; j++)
+            {
+                if (j is 0 || j == i)
+                {
+                    triangle[i].Add(1);
+                }
+                else
+                {
+                    triangle[i].Add(triangle[i - 1][j - 1] + triangle[i - 1][j]);
+                }
+            }
+        }
+
+        return triangle;
+    }
+
+    /// <remarks>
     ///     https://leetcode.com/problems/ransom-note/
     /// </remarks>
     public static bool CanConstruct(string ransomNote, string magazine)
@@ -379,7 +447,26 @@ public static class LeetEasy
     /// <remarks>
     ///     https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/
     /// </remarks>
-    public static int NumberOfSteps(int num) => -1;
+    public static int NumberOfSteps(int num)
+    {
+        var i = 0;
+        var result = num;
+        while (result is not 0)
+        {
+            if (result % 2 is 0)
+            {
+                result /= 2;
+            }
+            else
+            {
+                result -= 1;
+            }
+
+            i++;
+        }
+
+        return i;
+    }
 
     /// <remarks>
     ///     https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/
