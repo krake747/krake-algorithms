@@ -450,16 +450,15 @@ public static class LeetEasy
     public static int NumberOfSteps(int num)
     {
         var i = 0;
-        var result = num;
-        while (result is not 0)
+        while (num is not 0)
         {
-            if (result % 2 is 0)
+            if (num % 2 is 0)
             {
-                result /= 2;
+                num /= 2;
             }
             else
             {
-                result -= 1;
+                num -= 1;
             }
 
             i++;
