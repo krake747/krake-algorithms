@@ -16,4 +16,15 @@ public static class MathAlgorithms
             _ => Loop(n - 1L, b, a + b),
         };
     }
+
+    public static long Factorial(int n)
+    {
+        return Loop(n, 1);
+
+        static long Loop(long n, long a) => n switch
+        {
+            0 => a,
+            _ => Loop(n - 1, a * n)
+        };
+    }
 }

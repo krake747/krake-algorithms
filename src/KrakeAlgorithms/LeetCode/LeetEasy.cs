@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Numerics;
+using System.Text;
 
 namespace KrakeAlgorithms.LeetCode;
 
@@ -404,6 +405,56 @@ public static class LeetEasy
         }
 
         return triangle;
+    }
+    
+    /// <remarks>
+    ///     https://leetcode.com/problems/pascals-triangle-ii
+    /// </remarks>
+    public static IList<int> PascalsTriangleRow(int rowIndex) => 
+        PascalsTriangle(rowIndex + 1)[rowIndex];
+
+    /// <remarks>
+    ///     https://leetcode.com/problems/pascals-triangle-ii
+    /// </remarks>
+    public static IList<int> PascalsTriangleRow2(int rowIndex)
+    {
+        var row = new List<int>();
+        for (var i = 0; i < rowIndex + 1; i++)
+        {
+            row.Add((int)Combination(rowIndex, i));
+        }
+
+        return row;
+
+        static BigInteger Combination(BigInteger n, BigInteger k) => 
+            Factorial(n, 1) / (Factorial(k, 1) * Factorial(n - k, 1));
+        
+        static BigInteger Factorial(BigInteger n, BigInteger acc) => n switch
+        {
+            _ when n == 0 => acc,
+            _ => Factorial(n - 1, acc * n)
+        };
+    }
+
+    /// <remarks>
+    ///     https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+    /// </remarks>
+    public static int BestTimeToBuyAndSellStock(int[] prices)
+    {
+        if (prices.Length is 0)
+        {
+            return 0;
+        }
+
+        var minBuy = prices[0];
+        var profit = 0;
+        for (var i = 1; i < prices.Length; i++)
+        {
+            minBuy = Math.Min(minBuy, prices[i]);
+            profit = Math.Max(profit, prices[i] - minBuy);
+        }
+        
+        return profit;
     }
 
     /// <remarks>

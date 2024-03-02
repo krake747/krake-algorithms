@@ -20,4 +20,11 @@ var fibCSharp = MathAlgorithms.Fibonacci(50);
 
 Console.WriteLine($"C# Fib results in {fibCSharp} in {sw.ElapsedMilliseconds}ms");
 
+sw.Reset();
+
+sw.Start();
+
+var factorial = MathAlgorithms.Factorial(5);
+
+Console.WriteLine($"C# Factorial results in {factorial} in {sw.ElapsedMilliseconds}ms");
 

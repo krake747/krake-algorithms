@@ -254,6 +254,48 @@ public sealed class LeetEasyTests
     }
 
     [Fact]
+    public void PascalsTriangleRow()
+    {
+        // Arrange
+        const int input = 3;
+        IList<int> expected = [1, 3, 3, 1]; 
+        
+        // Act
+        var result = LeetEasy.PascalsTriangleRow(input);
+        
+        // Assert
+        result.Should().Equal(expected);
+    }
+    
+    [Fact]
+    public void PascalsTriangleRow2()
+    {
+        // Arrange
+        const int input = 3;
+        IList<int> expected = [1, 3, 3, 1]; 
+        
+        // Act
+        var result = LeetEasy.PascalsTriangleRow2(input);
+        
+        // Assert
+        result.Should().Equal(expected);
+    }
+
+    [Fact]
+    public void BestTimeToBuyAndSellStock()
+    {
+        // Arrange
+        int[] input = [7, 1, 5, 3, 6, 4];
+        const int expected = 5;
+        
+        // Act
+        var result = LeetEasy.BestTimeToBuyAndSellStock(input);
+
+        // Assert
+        result.Should().Be(expected);
+    }
+
+    [Fact]
     public void CanConstruct()
     {
         // Arrange
