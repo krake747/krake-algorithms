@@ -495,6 +495,9 @@ public static class LeetEasy
         return nums.Aggregate(0, (current, i) => current ^ i);
     }
     
+    /// <remarks>
+    ///     https://leetcode.com/problems/excel-sheet-column-title/
+    /// </remarks>
     public static string ExcelConvertToTitle(int columnNumber)
     {
         var sb = new StringBuilder();
@@ -507,6 +510,39 @@ public static class LeetEasy
         } while (columnNumber is not 0);
         
         return sb.ToString();
+    }
+    
+    /// <remarks>
+    ///     https://leetcode.com/problems/majority-element/
+    /// </remarks>
+    public static int MajorityElement(int[] nums)
+    {
+        var count = 0;
+        var majority = 0;
+        foreach (var num in nums)
+        {
+            if (count is 0)
+            {
+                majority = num;
+            }
+
+            count += num == majority ? 1 : -1;
+        }
+
+        return majority;
+        
+        // var n = nums.Length;
+        // var limit = n / 2;
+        // var memo = new Dictionary<int, int>();
+        // foreach (var num in nums)
+        // {
+        //     if (memo.TryAdd(num, 1) is false)
+        //     {
+        //         memo[num] += 1;
+        //     }
+        // }
+        //         
+        // return memo.MaxBy(x => x.Value > limit).Key;
     }
     
     /// <remarks>

@@ -338,6 +338,20 @@ public sealed class LeetEasyTests
         // Assert
         result.Should().Be(expected);
     }
+
+    [Fact]
+    public void MajorityElement()
+    {
+        // Arrange
+        var input = new[] { 3, 2, 3 };
+        const int expected = 3;
+
+        // Act
+        var result = LeetEasy.MajorityElement(input);
+
+        // Assert
+        result.Should().Be(expected);
+    }
     
     [Fact]
     public void CanConstruct()
