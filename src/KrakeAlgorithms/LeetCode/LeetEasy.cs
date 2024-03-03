@@ -632,6 +632,28 @@ public static class LeetEasy
         var set = new HashSet<int>(nums.Length);
         return nums.Any(num => set.Add(num) is false);
     }
+    
+    /// <remarks>
+    ///     https://leetcode.com/problems/contains-duplicate-ii/
+    /// </remarks>
+    public static bool ContainsNearbyDuplicate(int[] nums, int k)
+    {
+        var set = new HashSet<int>(); 
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (i > k)
+            {
+                set.Remove(nums[i - k - 1]);
+            }
+            
+            if (set.Add(nums[i]) is false) 
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 
     /// <remarks>
     ///     https://leetcode.com/problems/ransom-note/

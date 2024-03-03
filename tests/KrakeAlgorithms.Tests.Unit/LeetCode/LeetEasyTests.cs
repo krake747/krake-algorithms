@@ -412,6 +412,20 @@ public sealed class LeetEasyTests
 
         // Assert
         result.Should().BeTrue();
+    }    
+    
+    [Fact]
+    public void ContainsNearbyDuplicate()
+    {
+        // Arrange
+        int[] input1 = [1, 2, 3, 1, 2, 3];
+        const int input2 = 2;
+
+        // Act
+        var result = LeetEasy.ContainsNearbyDuplicate(input1, input2);
+
+        // Assert
+        result.Should().BeFalse();
     }
 
     [Fact]
