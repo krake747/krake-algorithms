@@ -602,6 +602,36 @@ public static class LeetEasy
             return sum;
         }
     }
+    
+    /// <remarks>
+    ///     https://leetcode.com/problems/isomorphic-strings/
+    /// </remarks>
+    public static bool IsIsomorphic(string s, string t)
+    {
+        if (s.Length != t.Length)
+        {
+            return false;
+        }
+
+        for (var i = 0; i < s.Length; i++)
+        {
+            if (s.IndexOf(s[i]) != t.IndexOf(t[i])) 
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    
+    /// <remarks>
+    ///     https://leetcode.com/problems/contains-duplicate/
+    /// </remarks>
+    public static bool ContainsDuplicate(int[] nums)
+    {
+        var set = new HashSet<int>(nums.Length);
+        return nums.Any(num => set.Add(num) is false);
+    }
 
     /// <remarks>
     ///     https://leetcode.com/problems/ransom-note/

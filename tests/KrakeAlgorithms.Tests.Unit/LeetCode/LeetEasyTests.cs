@@ -388,6 +388,33 @@ public sealed class LeetEasyTests
     }
 
     [Fact]
+    public void IsIsomorphic()
+    {
+        // Arrange
+        const string input1 = "egg";
+        const string input2 = "add";
+
+        // Act
+        var result = LeetEasy.IsIsomorphic(input1, input2);
+
+        // Assert
+        result.Should().BeTrue();
+    }
+
+    [Fact]
+    public void ContainsDuplicate()
+    {
+        // Arrange
+        int[] input = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2];
+
+        // Act
+        var result = LeetEasy.ContainsDuplicate(input);
+
+        // Assert
+        result.Should().BeTrue();
+    }
+
+    [Fact]
     public void CanConstruct()
     {
         // Arrange
