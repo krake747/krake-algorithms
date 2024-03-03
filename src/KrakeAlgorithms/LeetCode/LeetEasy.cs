@@ -383,7 +383,7 @@ public static class LeetEasy
     }
 
     /// <remarks>
-    ///         https://leetcode.com/problems/pascals-triangle/
+    ///     https://leetcode.com/problems/pascals-triangle/
     /// </remarks>
     public static IList<IList<int>> PascalsTriangle(int numRows)
     {
@@ -406,11 +406,11 @@ public static class LeetEasy
 
         return triangle;
     }
-    
+
     /// <remarks>
     ///     https://leetcode.com/problems/pascals-triangle-ii
     /// </remarks>
-    public static IList<int> PascalsTriangleRow(int rowIndex) => 
+    public static IList<int> PascalsTriangleRow(int rowIndex) =>
         PascalsTriangle(rowIndex + 1)[rowIndex];
 
     /// <remarks>
@@ -426,9 +426,9 @@ public static class LeetEasy
 
         return row;
 
-        static BigInteger Combination(BigInteger n, BigInteger k) => 
+        static BigInteger Combination(BigInteger n, BigInteger k) =>
             Factorial(n, 1) / (Factorial(k, 1) * Factorial(n - k, 1));
-        
+
         static BigInteger Factorial(BigInteger n, BigInteger acc) => n switch
         {
             _ when n == 0 => acc,
@@ -453,7 +453,7 @@ public static class LeetEasy
             minBuy = Math.Min(minBuy, prices[i]);
             profit = Math.Max(profit, prices[i] - minBuy);
         }
-        
+
         return profit;
     }
 
@@ -469,10 +469,10 @@ public static class LeetEasy
             state.AsSpan().CopyTo(chars);
             chars.Reverse();
         });
-        
+
         return s1 == r;
     }
-    
+
     /// <remarks>
     ///     https://leetcode.com/problems/single-number/
     /// </remarks>
@@ -486,15 +486,15 @@ public static class LeetEasy
                 memo[i] += 1;
             }
         }
-        
+
         return memo.MinBy(x => x.Value).Key;
     }
-    
+
     public static int SingleNumber2(int[] nums)
     {
         return nums.Aggregate(0, (current, i) => current ^ i);
     }
-    
+
     /// <remarks>
     ///     https://leetcode.com/problems/excel-sheet-column-title/
     /// </remarks>
@@ -508,10 +508,10 @@ public static class LeetEasy
             sb.Insert(0, (char)('A' + remainder));
             columnNumber /= 26;
         } while (columnNumber is not 0);
-        
+
         return sb.ToString();
     }
-    
+
     /// <remarks>
     ///     https://leetcode.com/problems/majority-element/
     /// </remarks>
@@ -530,7 +530,7 @@ public static class LeetEasy
         }
 
         return majority;
-        
+
         // var n = nums.Length;
         // var limit = n / 2;
         // var memo = new Dictionary<int, int>();
@@ -544,7 +544,65 @@ public static class LeetEasy
         //         
         // return memo.MaxBy(x => x.Value > limit).Key;
     }
-    
+
+    /// <remarks>
+    ///     https://leetcode.com/problems/excel-sheet-column-number/description/
+    /// </remarks>
+    public static int ExcelConvertToTitleNumber(string columnTitle)
+    {
+        return columnTitle.Aggregate(0, (columnNumber, c) => columnNumber * 26 + c % 'A' + 1);
+    }
+
+    /// <remarks>
+    ///     https://leetcode.com/problems/happy-number/
+    /// </remarks>
+    /// >
+    public static bool IsHappy(int n)
+    {
+        var sum = SumOfSquares(n);
+        var set = new HashSet<int> { sum };
+        while (true)
+        {
+            if (sum is 1)
+            {
+                return true;
+            }
+
+            sum = SumOfSquares(sum);
+            if (set.Add(sum) is false)
+            {
+                return false;
+            }
+        }
+
+        static int SumOfSquares(int n) => $"{n}".Sum(c => (c - '0') * (c - '0'));
+    }
+
+    public static bool IsHappy2(int n)
+    {
+        var slow = SumOfSquaresImp(n);
+        var fast = SumOfSquaresImp(SumOfSquaresImp(n));
+        while (slow != fast)
+        {
+            slow = SumOfSquaresImp(slow);
+            fast = SumOfSquaresImp(SumOfSquaresImp(fast));
+        }
+
+        return slow == 1;
+
+        static int SumOfSquaresImp(int n)
+        {
+            var sum = 0;
+            while (n is not 0)
+            {
+                sum += n % 10 * (n % 10);
+                n /= 10;
+            }
+
+            return sum;
+        }
+    }
+
     /// <remarks>
     ///     https://leetcode.com/problems/ransom-note/
     /// </remarks>

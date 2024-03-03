@@ -258,25 +258,25 @@ public sealed class LeetEasyTests
     {
         // Arrange
         const int input = 3;
-        IList<int> expected = [1, 3, 3, 1]; 
-        
+        IList<int> expected = [1, 3, 3, 1];
+
         // Act
         var result = LeetEasy.PascalsTriangleRow(input);
-        
+
         // Assert
         result.Should().Equal(expected);
     }
-    
+
     [Fact]
     public void PascalsTriangleRow2()
     {
         // Arrange
         const int input = 3;
-        IList<int> expected = [1, 3, 3, 1]; 
-        
+        IList<int> expected = [1, 3, 3, 1];
+
         // Act
         var result = LeetEasy.PascalsTriangleRow2(input);
-        
+
         // Assert
         result.Should().Equal(expected);
     }
@@ -287,38 +287,38 @@ public sealed class LeetEasyTests
         // Arrange
         int[] input = [7, 1, 5, 3, 6, 4];
         const int expected = 5;
-        
+
         // Act
         var result = LeetEasy.BestTimeToBuyAndSellStock(input);
 
         // Assert
         result.Should().Be(expected);
     }
-    
+
     [Fact]
     public void IsValidPalindrome()
     {
         // Arrange
         const string input = "A man, a plan, a canal: Panama";
-        
+
         // Act
         var result = LeetEasy.IsValidPalindrome(input);
 
         // Assert
         result.Should().BeTrue();
     }
-    
+
     [Fact]
     public void SingleNumber()
     {
         // Arrange
         var input = new[] { 2, 2, 1 };
-        const int expected = 1; 
-        
+        const int expected = 1;
+
         // Act
         var result1 = LeetEasy.SingleNumber(input);
         var result2 = LeetEasy.SingleNumber2(input);
-        
+
         // Assert
         using var _ = new AssertionScope();
         result1.Should().Be(expected);
@@ -331,10 +331,10 @@ public sealed class LeetEasyTests
         // Arrange
         const int columnNumber = 28;
         const string expected = "AB";
-        
+
         // Act
         var result = LeetEasy.ExcelConvertToTitle(columnNumber);
-        
+
         // Assert
         result.Should().Be(expected);
     }
@@ -352,7 +352,41 @@ public sealed class LeetEasyTests
         // Assert
         result.Should().Be(expected);
     }
-    
+
+    [Fact]
+    public void ExcelConvertToTitleNumber()
+    {
+        // Arrange
+        const string input = "ZY";
+        const int expected = 701;
+
+        // Act
+        var result = LeetEasy.ExcelConvertToTitleNumber(input);
+
+        // Assert
+        result.Should().Be(expected);
+    }
+
+    [Fact]
+    public void IsHappy()
+    {
+        // Arrange
+        const int input1 = 19;
+        const int input2 = 2;
+        // Act
+        var result1 = LeetEasy.IsHappy(input1);
+        var result2 = LeetEasy.IsHappy(input2);
+        var result3 = LeetEasy.IsHappy2(input1);
+        var result4 = LeetEasy.IsHappy2(input2);
+
+        // Assert
+        using var _ = new AssertionScope();
+        result1.Should().BeTrue();
+        result2.Should().BeFalse();
+        result3.Should().BeTrue();
+        result4.Should().BeFalse();
+    }
+
     [Fact]
     public void CanConstruct()
     {
