@@ -474,6 +474,42 @@ public static class LeetEasy
     }
     
     /// <remarks>
+    ///     https://leetcode.com/problems/single-number/
+    /// </remarks>
+    public static int SingleNumber(int[] nums)
+    {
+        var memo = new Dictionary<int, int>();
+        foreach (var i in nums)
+        {
+            if (memo.TryAdd(i, 1) is false)
+            {
+                memo[i] += 1;
+            }
+        }
+        
+        return memo.MinBy(x => x.Value).Key;
+    }
+    
+    public static int SingleNumber2(int[] nums)
+    {
+        return nums.Aggregate(0, (current, i) => current ^ i);
+    }
+    
+    public static string ExcelConvertToTitle(int columnNumber)
+    {
+        var sb = new StringBuilder();
+        do
+        {
+            columnNumber--;
+            var remainder = columnNumber % 26;
+            sb.Insert(0, (char)('A' + remainder));
+            columnNumber /= 26;
+        } while (columnNumber is not 0);
+        
+        return sb.ToString();
+    }
+    
+    /// <remarks>
     ///     https://leetcode.com/problems/ransom-note/
     /// </remarks>
     public static bool CanConstruct(string ransomNote, string magazine)

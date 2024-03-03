@@ -307,7 +307,38 @@ public sealed class LeetEasyTests
         // Assert
         result.Should().BeTrue();
     }
+    
+    [Fact]
+    public void SingleNumber()
+    {
+        // Arrange
+        var input = new[] { 2, 2, 1 };
+        const int expected = 1; 
+        
+        // Act
+        var result1 = LeetEasy.SingleNumber(input);
+        var result2 = LeetEasy.SingleNumber2(input);
+        
+        // Assert
+        using var _ = new AssertionScope();
+        result1.Should().Be(expected);
+        result2.Should().Be(expected);
+    }
 
+    [Fact]
+    public void ExcelConvertToTitle()
+    {
+        // Arrange
+        const int columnNumber = 28;
+        const string expected = "AB";
+        
+        // Act
+        var result = LeetEasy.ExcelConvertToTitle(columnNumber);
+        
+        // Assert
+        result.Should().Be(expected);
+    }
+    
     [Fact]
     public void CanConstruct()
     {
