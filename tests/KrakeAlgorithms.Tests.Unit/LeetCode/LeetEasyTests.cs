@@ -443,6 +443,20 @@ public sealed class LeetEasyTests
     }
     
     [Fact]
+    public void IsAnagram()
+    {
+        // Arrange
+        const string input1 = "anagram";
+        const string input2 = "nagaram";
+        
+        // Act
+        var result = LeetEasy.IsAnagram(input1, input2);
+
+        // Assert
+        result.Should().BeTrue();
+    }
+    
+    [Fact]
     public void CanConstruct()
     {
         // Arrange

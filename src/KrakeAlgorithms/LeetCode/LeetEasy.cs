@@ -679,6 +679,34 @@ public static class LeetEasy
         return ranges;
     }
 
+    public static bool IsAnagram(string s, string t)
+    {
+        if (s.Length != t.Length)
+        {
+            return false;
+        }
+
+        var frequencies = new Dictionary<char, int>();
+        foreach (var c in s)
+        {
+            frequencies[c] = frequencies.TryGetValue(c, out var value) ? ++value : 1;
+        }
+
+        foreach (var c in t)
+        {
+            if (frequencies.TryGetValue(c, out var value))
+            {
+                frequencies[c] = --value;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
+        return frequencies.All(kvp => kvp.Value is 0);
+    }
+    
     /// <remarks>
     ///     https://leetcode.com/problems/ransom-note/
     /// </remarks>
