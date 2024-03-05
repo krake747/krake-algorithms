@@ -429,6 +429,20 @@ public sealed class LeetEasyTests
     }
 
     [Fact]
+    public void SummaryRanges()
+    {
+        // Arrange
+        int[] input = [0, 2, 3, 4, 6, 8, 9];
+        string[] expected = ["0", "2->4", "6", "8->9"];
+        
+        // Act
+        var result = LeetEasy.SummaryRanges(input);
+
+        // Assert
+        result.Should().BeEquivalentTo(expected);
+    }
+    
+    [Fact]
     public void CanConstruct()
     {
         // Arrange

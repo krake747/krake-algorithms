@@ -654,6 +654,30 @@ public static class LeetEasy
 
         return false;
     }
+    
+    /// <remarks>
+    ///     https://leetcode.com/problems/summary-ranges/
+    /// </remarks>
+    public static IList<string> SummaryRanges(int[] nums)
+    {
+        var ranges = new List<string>();
+        var i = 0;
+        while (i < nums.Length)
+        {
+            var start = nums[i];
+            while (i + 1 < nums.Length && nums[i + 1] == nums[i] + 1)
+            {
+                i++;
+            }
+            
+            var end = nums[i];
+            ranges.Add(start == end ? $"{start}" : $"{start}->{end}");
+            
+            i++;          
+        }
+        
+        return ranges;
+    }
 
     /// <remarks>
     ///     https://leetcode.com/problems/ransom-note/
