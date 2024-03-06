@@ -708,6 +708,33 @@ public static class LeetEasy
     }
     
     /// <remarks>
+    ///     https://leetcode.com/problems/add-digits/
+    /// </remarks>
+    public static int AddDigits(int num)
+    {
+        var sum = num;
+        do
+        {
+            sum = SumOfDigits(sum);
+        } while (sum > 9);
+        
+        return sum;
+        
+        static int SumOfDigits(int n)
+        {
+            var sum = 0;
+            while (n is not 0)
+            {
+                var r = n % 10;
+                sum += r;
+                n /= 10;
+            }
+
+            return sum;
+        }
+    }
+    
+    /// <remarks>
     ///     https://leetcode.com/problems/ransom-note/
     /// </remarks>
     public static bool CanConstruct(string ransomNote, string magazine)

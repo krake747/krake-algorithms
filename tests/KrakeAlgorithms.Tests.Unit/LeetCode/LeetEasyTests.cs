@@ -1,4 +1,5 @@
-﻿using FluentAssertions.Execution;
+﻿using System.Diagnostics.CodeAnalysis;
+using FluentAssertions.Execution;
 using KrakeAlgorithms.LeetCode;
 
 namespace KrakeAlgorithms.Tests.Unit.LeetCode;
@@ -454,6 +455,20 @@ public sealed class LeetEasyTests
 
         // Assert
         result.Should().BeTrue();
+    }
+    
+    [Fact]
+    public void AddDigits()
+    {
+        // Arrange
+        const int input = 38;
+        const int expected = 2;
+        
+        // Act
+        var result = LeetEasy.AddDigits(input);
+
+        // Assert
+        result.Should().Be(expected);
     }
     
     [Fact]
