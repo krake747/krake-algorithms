@@ -735,6 +735,25 @@ public static class LeetEasy
             return sum;
         }
     }
+    
+    public static bool IsUgly(int n)
+    {
+        if (n is 0)
+        {
+            return false;
+        }
+
+        int[] primes = [2, 3, 5];
+        foreach (var prime in primes)
+        {
+            while (n % prime is 0)
+            {
+                n /= prime;
+            }
+        }
+
+        return n is 1;
+    }
 
     /// <remarks>
     ///     https://leetcode.com/problems/ransom-note/
