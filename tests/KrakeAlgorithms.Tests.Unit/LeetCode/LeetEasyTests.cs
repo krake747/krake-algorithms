@@ -488,6 +488,20 @@ public sealed class LeetEasyTests
     }
     
     [Fact]
+    public void MissingNumber()
+    {
+        // Arrange
+        int[] input = [9, 6, 4, 2, 3, 5, 7, 0, 1];
+        const int expected = 8;
+        
+        // Act
+        var result = LeetEasy.MissingNumber(input);
+
+        // Assert
+        result.Should().Be(expected);
+    }
+    
+    [Fact]
     public void CanConstruct()
     {
         // Arrange

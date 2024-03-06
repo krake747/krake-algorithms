@@ -754,7 +754,12 @@ public static class LeetEasy
 
         return n is 1;
     }
-
+    
+    public static int MissingNumber(int[] nums)
+    {
+        return Enumerable.Range(0, nums.Length + 1).Except(nums).Single();
+    } 
+    
     /// <remarks>
     ///     https://leetcode.com/problems/ransom-note/
     /// </remarks>
