@@ -710,7 +710,9 @@ public static class LeetEasy
     /// <remarks>
     ///     https://leetcode.com/problems/add-digits/
     /// </remarks>
-    public static int AddDigits(int num)
+    public static int AddDigits(int num) => 1 + (num - 1) % 9;
+
+    public static int AddDigitsSlow(int num)
     {
         var sum = num;
         do
@@ -729,11 +731,11 @@ public static class LeetEasy
                 sum += r;
                 n /= 10;
             }
-
+        
             return sum;
         }
     }
-    
+
     /// <remarks>
     ///     https://leetcode.com/problems/ransom-note/
     /// </remarks>
