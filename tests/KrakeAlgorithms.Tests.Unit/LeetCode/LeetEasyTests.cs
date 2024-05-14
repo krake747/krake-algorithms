@@ -502,6 +502,20 @@ public sealed class LeetEasyTests
     }
     
     [Fact]
+    public void MoveZeroes()
+    {
+        // Arrange
+        int[] input = [0, 1, 0, 3, 12];
+        int[] expected = [1, 3, 12, 0, 0];
+        
+        // Act
+        LeetEasy.MoveZeroes(input);
+
+        // Assert
+        input.Should().Equal(expected);
+    }
+    
+    [Fact]
     public void CanConstruct()
     {
         // Arrange

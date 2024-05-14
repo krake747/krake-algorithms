@@ -4,6 +4,36 @@ public sealed class SortAlgorithmsTests
 {
     [Theory]
     [ClassData(typeof(UnsortedData))]
+    public void SelectionSort_ShouldReturnSortedArray_WhenInputArrayIsUnsorted(int[] unsorted, int[] expected)
+    {
+        // Arrange
+        var sut = SortAlgorithms.SelectionSort<int>;
+
+        // Act
+        var result = sut(unsorted);
+
+        // Assert
+        result.Should().Equal(expected)
+            .And.BeInAscendingOrder();
+    }
+    
+    [Theory]
+    [ClassData(typeof(UnsortedData))]
+    public void InsertionSort_ShouldReturnSortedArray_WhenInputArrayIsUnsorted(int[] unsorted, int[] expected)
+    {
+        // Arrange
+        var sut = SortAlgorithms.InsertionSort<int>;
+
+        // Act
+        var result = sut(unsorted);
+
+        // Assert
+        result.Should().Equal(expected)
+            .And.BeInAscendingOrder();
+    }
+    
+    [Theory]
+    [ClassData(typeof(UnsortedData))]
     public void BubbleSort_ShouldReturnSortedArray_WhenInputArrayIsUnsorted(int[] unsorted, int[] expected)
     {
         // Arrange

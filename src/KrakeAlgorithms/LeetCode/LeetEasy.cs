@@ -679,6 +679,9 @@ public static class LeetEasy
         return ranges;
     }
 
+    /// <remarks>
+    ///     https://leetcode.com/problems/valid-anagram/
+    /// </remarks>
     public static bool IsAnagram(string s, string t)
     {
         if (s.Length != t.Length)
@@ -736,6 +739,9 @@ public static class LeetEasy
         }
     }
     
+    /// <remarks>
+    ///     https://leetcode.com/problems/ugly-number/
+    /// </remarks>
     public static bool IsUgly(int n)
     {
         if (n is 0)
@@ -755,10 +761,33 @@ public static class LeetEasy
         return n is 1;
     }
     
+    /// <remarks>
+    ///     https://leetcode.com/problems/missing-number/
+    /// </remarks>
     public static int MissingNumber(int[] nums)
     {
         return Enumerable.Range(0, nums.Length + 1).Except(nums).Single();
-    } 
+    }
+    
+    /// <remarks>
+    ///     https://leetcode.com/problems/move-zeroes/
+    /// </remarks>
+    public static void MoveZeroes(int[] nums)
+    {
+        var i = 0;
+        foreach (var num in nums)
+        {
+            if (num is not 0)
+            {
+                nums[i++] = num;
+            }
+        }
+
+        while (i < nums.Length)
+        {
+            nums[i++] = 0;
+        }
+    }
     
     /// <remarks>
     ///     https://leetcode.com/problems/ransom-note/

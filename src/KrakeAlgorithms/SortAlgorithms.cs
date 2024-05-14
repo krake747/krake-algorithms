@@ -4,33 +4,63 @@ namespace KrakeAlgorithms;
 
 public static class SortAlgorithms
 {
-    public static T[] BubbleSort<T>(T[] array)
+    public static T[] SelectionSort<T>(T[] a)
         where T : INumber<T>
     {
-        for (var i = 0; i < array.Length; ++i)
+        for (var i = 0; i < a.Length - 1; ++i)
         {
-            for (var j = 0; j < array.Length - 1 - i; ++j)
+            var minIndex = i;
+            var minValue = a[i];
+            for (var j = i + 1; j < a.Length; ++j)
             {
-                if (array[j] > array[j + 1])
+                if (a[j] < minValue)
                 {
-                    Swap(array, j, j + 1);
+                    minIndex = j;
+                    minValue = a[j];
+                }
+            }
+
+            (a[i], a[minIndex]) = (a[minIndex], a[i]);
+        }
+        
+        return a;
+    }
+    
+    public static T[] InsertionSort<T>(T[] a)
+        where T : INumber<T>
+    {
+        for (var i = 1; i < a.Length; ++i)
+        {
+            var j = i;
+            while (j > 0 && a[j] < a[j - 1])
+            {
+                (a[j], a[j - 1]) = (a[j - 1], a[j]);
+                j--;
+            }
+        }
+        
+        return a;
+    }
+
+    public static T[] BubbleSort<T>(T[] a)
+        where T : INumber<T>
+    {
+        for (var i = 0; i < a.Length; ++i)
+        {
+            for (var j = 0; j < a.Length - 1 - i; ++j)
+            {
+                if (a[j] > a[j + 1])
+                {
+                    (a[j], a[j + 1]) = (a[j + 1], a[j]);
                 }
             }
         }
 
-        return array;
-    }
-
-    private static void Swap<T>(IList<T> array, int firstIndex, int secondIndex)
-    {
-        (array[firstIndex], array[secondIndex]) = (array[secondIndex], array[firstIndex]);
+        return a;
     }
 
     public static T[] QuickSort<T>(T[] sample) => Array.Empty<T>();
 
     public static T[] MergeSort<T>(T[] sample) => Array.Empty<T>();
 
-    public static T[] SelectionSort<T>(T[] sample) => Array.Empty<T>();
-
-    public static T[] InsertionSort<T>(T[] sample) => Array.Empty<T>();
 }
