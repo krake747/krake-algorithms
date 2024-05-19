@@ -46,6 +46,51 @@ public sealed class SortAlgorithmsTests
         result.Should().Equal(expected)
             .And.BeInAscendingOrder();
     }
+    
+    [Theory]
+    [ClassData(typeof(UnsortedData))]
+    public void MergeSort_ShouldReturnSortedArray_WhenInputArrayIsUnsorted(int[] unsorted, int[] expected)
+    {
+        // Arrange
+        var sut = SortAlgorithms.MergeSort<int>;
+
+        // Act
+        var result = sut(unsorted);
+
+        // Assert
+        result.Should().Equal(expected)
+            .And.BeInAscendingOrder();
+    }
+    
+    [Theory]
+    [ClassData(typeof(UnsortedData))]
+    public void ShellSort_ShouldReturnSortedArray_WhenInputArrayIsUnsorted(int[] unsorted, int[] expected)
+    {
+        // Arrange
+        var sut = SortAlgorithms.ShellSort<int>;
+
+        // Act
+        var result = sut(unsorted);
+
+        // Assert
+        result.Should().Equal(expected)
+            .And.BeInAscendingOrder();
+    }
+    
+    [Theory]
+    [ClassData(typeof(UnsortedData))]
+    public void QuickSort_ShouldReturnSortedArray_WhenInputArrayIsUnsorted(int[] unsorted, int[] expected)
+    {
+        // Arrange
+        var sut = SortAlgorithms.QuickSort<int>;
+
+        // Act
+        var result = sut(unsorted);
+
+        // Assert
+        result.Should().Equal(expected)
+            .And.BeInAscendingOrder();
+    }
 }
 
 public sealed class UnsortedData : TheoryData<int[], int[]>
